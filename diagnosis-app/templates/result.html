@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>نتيجة التشخيص - طبيبك الافتراضي</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        h1 {
+            font-size: 40px;
+            margin-bottom: 40px;
+            border-bottom: 2px solid white;
+            padding-bottom: 10px;
+        }
+
+        .disease {
+            background-color: #111;
+            border: 1px solid #444;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .disease h2 {
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .disease p {
+            color: #ccc;
+            font-size: 16px;
+        }
+
+        a {
+            color: white;
+            text-decoration: underline;
+            font-size: 18px;
+        }
+
+        .developer {
+            margin-top: 50px;
+            font-size: 14px;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>نتيجة التشخيص</h1>
+
+        {% if message %}
+            <p>{{ message }}</p>
+        {% else %}
+            {% for item in results %}
+                <div class="disease">
+                    <h2>{{ item.disease }}</h2>
+                    <p>{{ item.advice }}</p>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <a href="/">العودة للصفحة الرئيسية</a>
+
+        <div class="developer">
+            <p>تطوير: مبارك الرشيدي</p>
+        </div>
+    </div>
+</body>
+</html>
